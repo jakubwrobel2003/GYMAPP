@@ -41,3 +41,7 @@ void user::setHeight(int height) {
 void user::setWeight(double weight) {
     this->weight;
 };
+void user::userMetod0() {};
+void user::userMetod1() {};
+void user::userMetod2() {};
+void user::userMetod3() {};
