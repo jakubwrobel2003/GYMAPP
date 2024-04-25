@@ -7,6 +7,7 @@
 #include <sstream>
 #include <iostream>
 using namespace std;
+vector<user> users;
 
 
 int main()
@@ -17,9 +18,8 @@ int main()
     const char* nazwaPliku = "user.txt";
 
    
-    vector<user> users;
-    users= obj.wczytajDaneZTXT(nazwaPliku);
-    users[0].print();
+    obj.users= obj.wczytajDaneZTXT(nazwaPliku);
+    obj.users[0].print();
     cout << "Witaj w GymNote\n";
     while (obj.getStatus())
     {

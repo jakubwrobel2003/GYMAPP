@@ -29,16 +29,9 @@ public:
     void setAge(int wiek);
     void setHeight(int height);
     void setWeight(double weight);
-
+    void hidenInDataBase();
     void print() const;
-    void userMetod0();
-    void userMetod1();
-    void userMetod2();
-    void userMetod3();
-
-    using usersPointer = void (user::*)();
-    usersPointer userMethodTable[4] = { &user::userMetod0, &user::userMetod1, &user::userMetod2,&user::userMetod3 };
-    void callUserMethod(int index);
+   
 
    
 };
