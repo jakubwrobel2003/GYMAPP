@@ -15,9 +15,10 @@ class user
     int height;
 	double weight;
     bool deleted = false;
-    vector <exercise> favExercise;
 
 public:
+    vector <exercise> favExercise;
+
     user(const char* imie, const char* nazwisko, int wiek, int height, double weight);
    
 

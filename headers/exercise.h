@@ -1,15 +1,16 @@
 #pragma once
-
+#include <cstring>
 class exercise
 {
 private:
 	int ID;
-	char name[24];
+	char name[50];
 	int serie;
 	double max;
 	double kgInSerie;
 	double oneRepMax;
 public:
+	exercise(int id, const char* exerciseName, int series, double maxWeight, double weightInSeries, double oneRM);
 int	getID();
 void setID();
 char getName();

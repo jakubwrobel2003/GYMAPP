@@ -22,7 +22,17 @@ int main()
 
    
     obj.users= obj.wczytajDaneZTXT(nazwaPliku);
-    obj.users[0].print();
+    for (int i = 0; i < obj.users.size(); i++) {
+        std::ostringstream oss;
+
+       
+        oss << "source/exercise_" << i+1 << ".txt";
+
+  
+       string fileNameStr = oss.str();
+        const char* fileName = fileNameStr.c_str();
+        obj.users[i].favExercise = obj.wczytajDaneCwiczeniaZTXT(fileName);
+    }
     cout << "Witaj w GymNote\n";
     while (obj.getStatus())
     {

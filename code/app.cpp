@@ -85,6 +85,45 @@ vector<user> appstatus::wczytajDaneZTXT(const char* nazwaPliku) {
     file.close();
     return users;
 }
+
+vector<exercise>appstatus::wczytajDaneCwiczeniaZTXT(const char* nazwaPliku) {
+    vector<exercise> exercises;
+
+    ifstream file(nazwaPliku);
+    if (!file.is_open()) {
+        cerr << "Nie mo¿na otworzyæ pliku TXT!" << endl;
+        return exercises;
+    }
+
+    char line[100];
+
+    while (file.getline(line, sizeof(line))) {
+        istringstream iss(line);
+
+        // Dane do wczytania
+        int id;
+        char name[50];
+        int serie;
+        double max;
+        double kgInSerie;
+        double oneRepMax;
+
+        // Odczytanie danych z jednej linii
+        iss >> id >> name >> serie >> max >> kgInSerie >> oneRepMax;
+
+        // Sprawdzenie, czy strumieñ jest w dobrym stanie (jeœli nie, pomijamy tê liniê)
+        if (!iss.fail()) {
+            // Stworzenie obiektu exercise i dodanie go do wektora
+            exercise e(id, name, serie, max, kgInSerie, oneRepMax);
+            exercises.push_back(e);
+        }
+    }
+
+    file.close();
+    return exercises;
+
+};
+
 void appstatus::userMetod0() {
     char imie[50];
     char nazwisko[50];

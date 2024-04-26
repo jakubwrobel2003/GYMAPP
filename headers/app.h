@@ -23,7 +23,7 @@ public:
 	void callMethod(int index);
 
 	vector<user> wczytajDaneZTXT(const char* nazwaPliku);
-	
+	vector<exercise> wczytajDaneCwiczeniaZTXT(const char* nazwaPliku);
 
 	void userMetod0();
 	void userMetod1();
