@@ -1,4 +1,4 @@
-#include "app.h"
+#include "../headers/app.h"
 #include <fstream>
 #include <vector>
 #include <sstream>
@@ -17,7 +17,7 @@ void appstatus::method0() {
 	cout << "4-Show user all\n";
     cout << "5-To back\n";
 	cin >> ster;
-	
+    this->callUserMethod(ster);
 
 }
 
@@ -27,13 +27,22 @@ void appstatus::method1() {
 	cout << "1-Delete new exercise\n";
 	cout << "2-Show information new exercise\n";
     cin >> ster;
-
+   
 }
 
 void appstatus::method2() {
 	cout << "Goodbay\n";
 	this->setStatus();
 }
+
+void appstatus::callUserMethod(int index) {
+    if (index >= 0 && index < 7) {
+        (this->*userMethodTable[index])();
+    }
+    else {
+        cout << "Invalid index\n";
+    }
+};
 
 void appstatus::callMethod(int index) {
 	if (index >= 0 && index < 3) {
@@ -109,7 +118,8 @@ void appstatus::userMetod1() {
     int i;
     cout << "podaj id usera do usuniecia\n";
     cin >> i;
-    this->users[i].hidenInDataBase();
+    //this->users[i].hidenInDataBase();
+    this->users.erase(this->users.begin() + i - 1);
 };
 void appstatus::userMetod2() {
 
@@ -142,12 +152,21 @@ void appstatus::userMetod2() {
 
 };
 void appstatus::userMetod3() {
-    int i;
+    int ID;
+    
     cout << "podaj id usera do Wiswietlenia\n";
-    cin >> i;
-    this->users[i].print();
+    cin >> ID;
+    
+    for (int i = 1; i < this->users.size(); i++) {
+        if(this->users[i].getID() == ID) {
+            this->users[i].print();
+            return;
+        }
+    }
+    cout << "Nie ma takiego usera\n";
 };
 void appstatus::userMetod4() {
+    
     int i = 1;
     for (int i = 0; i < this->users.size(); i++) {
         this->users[i].print();

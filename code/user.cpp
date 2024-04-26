@@ -1,4 +1,4 @@
-#include "user.h"
+#include "../headers/user.h"
 
 user::user(const char* imie, const char* nazwisko, int wiek, int height, double weight) {
     static int i = 0;

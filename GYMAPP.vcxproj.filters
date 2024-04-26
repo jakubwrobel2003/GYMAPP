@@ -15,37 +15,91 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
-    <ClCompile Include="exercise.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
-    <ClCompile Include="user.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
-    <ClCompile Include="status.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
-    <ClCompile Include="app.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="exercise.h">
+    <ClInclude Include="headers\app.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="user.h">
+    <ClInclude Include="headers\exercise.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="status.h">
+    <ClInclude Include="headers\status.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="app.h">
+    <ClInclude Include="headers\user.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="user.txt" />
+    <ClCompile Include="code\app.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="code\exercise.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="code\main.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="code\status.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="code\user.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="source\user.txt">
+      <Filter>Pliki źródłowe</Filter>
+    </Text>
+    <Text Include="source\exercise_1.txt" />
+    <Text Include="source\exercise_2.txt" />
+    <Text Include="source\exercise_3.txt" />
+    <Text Include="source\exercise_4.txt" />
+    <Text Include="source\exercise_5.txt" />
+    <Text Include="source\exercise_6.txt" />
+    <Text Include="source\exercise_7.txt" />
+    <Text Include="source\exercise_8.txt" />
+    <Text Include="source\exercise_9.txt" />
+    <Text Include="source\exercise_10.txt" />
+    <Text Include="source\exercise_11.txt" />
+    <Text Include="source\exercise_12.txt" />
+    <Text Include="source\exercise_13.txt" />
+    <Text Include="source\exercise_14.txt" />
+    <Text Include="source\exercise_15.txt" />
+    <Text Include="source\exercise_16.txt" />
+    <Text Include="source\exercise_17.txt" />
+    <Text Include="source\exercise_18.txt" />
+    <Text Include="source\exercise_19.txt" />
+    <Text Include="source\exercise_20.txt" />
+    <Text Include="source\exercise_21.txt" />
+    <Text Include="source\exercise_22.txt" />
+    <Text Include="source\exercise_23.txt" />
+    <Text Include="source\exercise_24.txt" />
+    <Text Include="source\exercise_25.txt" />
+    <Text Include="source\exercise_26.txt" />
+    <Text Include="source\exercise_27.txt" />
+    <Text Include="source\exercise_28.txt" />
+    <Text Include="source\exercise_29.txt" />
+    <Text Include="source\exercise_30.txt" />
+    <Text Include="source\exercise_31.txt" />
+    <Text Include="source\exercise_32.txt" />
+    <Text Include="source\exercise_33.txt" />
+    <Text Include="source\exercise_34.txt" />
+    <Text Include="source\exercise_35.txt" />
+    <Text Include="source\exercise_36.txt" />
+    <Text Include="source\exercise_37.txt" />
+    <Text Include="source\exercise_38.txt" />
+    <Text Include="source\exercise_39.txt" />
+    <Text Include="source\exercise_40.txt" />
+    <Text Include="source\exercise_41.txt" />
+    <Text Include="source\exercise_42.txt" />
+    <Text Include="source\exercise_43.txt" />
+    <Text Include="source\exercise_44.txt" />
+    <Text Include="source\exercise_45.txt" />
+    <Text Include="source\exercise_46.txt" />
+    <Text Include="source\exercise_47.txt" />
+    <Text Include="source\exercise_48.txt" />
+    <Text Include="source\exercise_49.txt" />
+    <Text Include="source\exercise_50.txt" />
+    <Text Include="source\exercise_51.txt" />
+    <Text Include="source\exercise_52.txt" />
   </ItemGroup>
 </Project>

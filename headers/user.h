@@ -4,6 +4,7 @@
 #include <vector>
 #include <sstream>
 #include <iostream>
+#include "exercise.h"
 using namespace std;
 class user
 {private:
@@ -14,6 +15,7 @@ class user
     int height;
 	double weight;
     bool deleted = false;
+    vector <exercise> favExercise;
 
 public:
     user(const char* imie, const char* nazwisko, int wiek, int height, double weight);
@@ -21,6 +23,7 @@ public:
 
     const char* getImie() const { return imie; }
     const char* getNazwisko() const { return nazwisko; }
+    int getID()const { return ID; }
     int getWiek() const { return wiek; }
     int getWzrost() const { return height; }
     double getWaga() const { return weight; }
