@@ -1,4 +1,4 @@
-#pragma once
+
 #include <iostream>;
 #include <vector>
 #include "user.h"
@@ -37,5 +37,19 @@ public:
 	using usersPointer = void (appstatus::*)();
 	usersPointer userMethodTable[6] = { &appstatus::userMetod0, &appstatus::userMetod1, &appstatus::userMetod2,&appstatus::userMetod3 ,&appstatus::userMetod4 ,&appstatus::userMetod5 };
 	void callUserMethod(int index);
+
+
+	void exerciseMetod0();
+	void exerciseMetod1();
+	void exerciseMetod2();
+	void exerciseMetod3();
+	void exerciseMetod4();
+
+
+	using usersPointer = void (appstatus::*)();
+	usersPointer exerciseMethodTable[5] = { &appstatus::exerciseMetod0, &appstatus::exerciseMetod1, &appstatus::exerciseMetod2,&appstatus::exerciseMetod3,&appstatus::exerciseMetod4 };
+	
+	
+	void callExerciseMethod(int index);
 };
 

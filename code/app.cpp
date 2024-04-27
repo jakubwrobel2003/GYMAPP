@@ -25,18 +25,32 @@ void appstatus::method1() {
     int ster;
 	cout << "0-Add new exercise\n";
 	cout << "1-Delete new exercise\n";
-	cout << "2-Show information new exercise\n";
+	cout << "2-Show information exercise\n";
+    cout << "3-Show information all exercises\n";
+    cout << "4-To back\n";
+
     cin >> ster;
-   
+    callExerciseMethod(ster);
 }
 
 void appstatus::method2() {
-	cout << "Goodbay\n";
-	this->setStatus();
+    cout << "Goodbay\n";
+    this->setStatus();
 }
 
-void appstatus::callUserMethod(int index) {
+void appstatus::callExerciseMethod(int index) {
     if (index >= 0 && index < 7) {
+        (this->*exerciseMethodTable[index])();
+    }
+    else {
+        cout << "Invalid index\n";
+    }
+};
+
+
+
+void appstatus::callUserMethod(int index) {
+    if (index >= 0 && index < 3) {
         (this->*userMethodTable[index])();
     }
     else {
@@ -59,7 +73,7 @@ vector<user> appstatus::wczytajDaneZTXT(const char* nazwaPliku) {
     ifstream file(nazwaPliku);
 
     if (!file.is_open()) {
-        std::cerr << "Nie mo¿na otworzyæ pliku TXT!" << std::endl;
+        std::cerr << "Unable to open TXT file!" << std::endl;
         return users;
     }
 
@@ -91,7 +105,7 @@ vector<exercise>appstatus::wczytajDaneCwiczeniaZTXT(const char* nazwaPliku) {
 
     ifstream file(nazwaPliku);
     if (!file.is_open()) {
-        cerr << "Nie mo¿na otworzyæ pliku TXT!" << endl;
+        cerr << "Unable to open TXT file!" << endl;
         return exercises;
     }
 
@@ -100,7 +114,6 @@ vector<exercise>appstatus::wczytajDaneCwiczeniaZTXT(const char* nazwaPliku) {
     while (file.getline(line, sizeof(line))) {
         istringstream iss(line);
 
-        // Dane do wczytania
         int id;
         char name[50];
         int serie;
@@ -108,14 +121,13 @@ vector<exercise>appstatus::wczytajDaneCwiczeniaZTXT(const char* nazwaPliku) {
         double kgInSerie;
         double oneRepMax;
 
-        // Odczytanie danych z jednej linii
         iss >> id >> name >> serie >> max >> kgInSerie >> oneRepMax;
 
-        // Sprawdzenie, czy strumieñ jest w dobrym stanie (jeœli nie, pomijamy tê liniê)
         if (!iss.fail()) {
-            // Stworzenie obiektu exercise i dodanie go do wektora
+         
             exercise e(id, name, serie, max, kgInSerie, oneRepMax);
             exercises.push_back(e);
+           
         }
     }
 
@@ -125,66 +137,66 @@ vector<exercise>appstatus::wczytajDaneCwiczeniaZTXT(const char* nazwaPliku) {
 };
 
 void appstatus::userMetod0() {
-    char imie[50];
-    char nazwisko[50];
-    int wiek;
+    char name[50];
+    char surname[50];
+    int age;
     int height;
     double weight;
 
    
-    cout << "Podaj imie: ";
-    cin.getline(imie, 50);
+    cout << "Enter first name: \n";
+    cin.getline(name, 50);
 
-    cout << "Podaj nazwisko: ";
-    cin.getline(nazwisko, 50);
-
-
-    cout << "Podaj wiek: ";
-    cin >> wiek;
+    cout << "Enter last name: \n";
+    cin.getline(surname, 50);
 
 
-    cout << "Podaj wzrost w cm: ";
+    cout << "Enter age: \n";
+    cin >>age;
+
+
+    cout << "Enter height in cm: \n";
     cin >> height;
 
 
-    cout << "Podaj wage w kg: ";
+    cout << "Enter weight in kg: \n";
     cin >> weight;
 
-    user u= user( imie,  nazwisko,  wiek, height,  weight);
+    user u= user( name,  surname,  age, height,  weight);
     this->users.push_back(u);
 };
 void appstatus::userMetod1() {
     int i;
-    cout << "podaj id usera do usuniecia\n";
+    cout << "Enter the user ID to delete:\n";
     cin >> i;
-    //this->users[i].hidenInDataBase();
+   
     this->users.erase(this->users.begin() + i - 1);
 };
 void appstatus::userMetod2() {
 
     int i;
-    char imie[50];
-    char nazwisko[50];
-    int wiek;
+    char name[50];
+    char surname[50];
+    int age;
     int height;
     double weight;
 
-    cout << "podaj id usera do edycji\n";
+    cout << "Enter the user ID to edit\n";
     cin >> i;
-    cout << "Podaj imie: ";
-    cin.getline(imie, 50);
-    cout << "Podaj nazwisko: ";
-    cin.getline(nazwisko, 50);
-    cout << "Podaj wiek: ";
-    cin >> wiek;
-    cout << "Podaj wzrost w cm: ";
+    cout << "Enter first name: \n";
+    cin.getline(name, 50);
+    cout << "Enter last name: \n";
+    cin.getline(surname, 50);
+    cout << "Enter age: \n";
+    cin >> age;
+    cout << "Enter height in cm: \n";
     cin >> height;
-    cout << "Podaj wage w kg: ";
+    cout << "Enter weight in kg: \n";
     cin >> weight;
 
-    this->users[i].setImie(imie);
-    this->users[i].setNazwisko(nazwisko);
-    this->users[i].setAge(wiek);
+    this->users[i].setFirstName(name);
+    this->users[i].setLastName(surname);
+    this->users[i].setAge(age);
     this->users[i].setHeight(height);
     this->users[i].setWeight(weight);
 
@@ -193,7 +205,7 @@ void appstatus::userMetod2() {
 void appstatus::userMetod3() {
     int ID;
     
-    cout << "podaj id usera do Wiswietlenia\n";
+    cout << "Enter the user ID to display:\n";
     cin >> ID;
     
     for (int i = 1; i < this->users.size(); i++) {
@@ -202,7 +214,7 @@ void appstatus::userMetod3() {
             return;
         }
     }
-    cout << "Nie ma takiego usera\n";
+    cout << "There is no such user.\n";
 };
 void appstatus::userMetod4() {
     
@@ -214,3 +226,105 @@ void appstatus::userMetod4() {
 void appstatus::userMetod5() {
 //back
 };
+
+void appstatus::exerciseMetod0() {
+    int ID;
+    char name[50];
+    int serie;
+    double max;
+    double kgInSerie;
+    double oneRepMax;
+
+    cout << "Enter the user ID: \n";
+    cin >> ID;
+    cout << "Enter the name of exercise: \n";
+    cin.ignore(); 
+    cin.getline(name, 50);
+    cout << "Enter the series: \n";
+    cin >> serie;
+    cout << "Enter the max: \n";
+    cin >> max;
+    cout << "Enter kg in series \n";
+    cin >> kgInSerie;
+    cout << "Enter one-rep max: \n";
+    cin >> oneRepMax;
+
+    bool find = false;
+    for (int i = 1; i <= this->users.size(); i++) {
+
+        if (this->users[i].getID() == ID) {
+            exercise e(int(this->users[i].favExercise.size()), name, serie, max, kgInSerie, oneRepMax);
+            this->users[i].favExercise.push_back(e);
+            find = !find;
+        }
+    }
+    if (find) {
+        cout << "No such user exists.\n";
+    }
+
+}; void appstatus::exerciseMetod1() {
+    int IDuser;
+    int IDexercise;
+
+    do {
+        cout << "Enter user ID: \n";
+        cin >> IDuser;
+
+    } while (!(this->users.size() + 1 <= IDuser));
+    do {
+        cout << "Enter exercise ID: \n";
+        cin >> IDexercise;
+    } while (!(this->users[IDuser].favExercise.size() + 1 <= IDexercise));
+    bool find = false;
+
+   
+    for (int i = 0; i < this->users.size(); i++) {
+        if (this->users[i].getID() == IDuser) {
+         
+            if (IDexercise > 0 && IDexercise <= this->users[i].favExercise.size()) {
+                this->users[i].favExercise.erase(this->users[i].favExercise.begin() + IDexercise - 1);
+                find = true;
+            }
+        }
+    }
+    if (!find) {
+        cout << "No such user exists.\n";
+    }
+};
+
+void appstatus::exerciseMetod2() {
+    int IDuser;
+    int IDexercise;
+    do {
+        cout << "Enter user ID: \n";
+        cin >> IDuser;
+    } while (!(this->users.size() + 1 <= IDuser));
+    do {
+        cout << "Enter exercise ID: \n";
+        cin >> IDexercise;
+    }while (!(this->users[IDuser].favExercise.size() + 1 <= IDexercise));
+        
+    this->users[IDuser - 1].favExercise[IDexercise - 1].print();
+};
+void appstatus::exerciseMetod3() {
+    int IDuser;
+    
+    do {
+        cout << "Enter user ID: \n";
+        cin >> IDuser;
+     
+    } while (!(IDuser >= 1 && IDuser <= this->users.size()));
+   
+   
+
+    for (int i = 0; i < this->users[IDuser - 1].favExercise.size(); i++) {
+        this->users[IDuser - 1].favExercise[i].print();
+
+    }
+    
+};
+void appstatus::exerciseMetod4() {
+//back
+}
+
+

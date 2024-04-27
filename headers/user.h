@@ -6,38 +6,37 @@
 #include <iostream>
 #include "exercise.h"
 using namespace std;
+
 class user
-{private:
+{
+private:
     int ID;
-	char imie[50];
-    char nazwisko[50];
-    int wiek;
+    char firstName[50];
+    char lastName[50];
+    int age;
     int height;
-	double weight;
+    double weight;
     bool deleted = false;
 
 public:
     vector <exercise> favExercise;
 
-    user(const char* imie, const char* nazwisko, int wiek, int height, double weight);
-   
 
-    const char* getImie() const { return imie; }
-    const char* getNazwisko() const { return nazwisko; }
-    int getID()const { return ID; }
-    int getWiek() const { return wiek; }
-    int getWzrost() const { return height; }
-    double getWaga() const { return weight; }
-    void setImie(char* imie);
-    void setNazwisko(char* nazwisko);
-    void setAge(int wiek);
+    user(const char* firstName, const char* lastName, int age, int height, double weight);
+
+    const char* getFirstName() const { return firstName; }
+    const char* getLastName() const { return lastName; }
+    int getID() const { return ID; }
+    int getAge() const { return age; }
+    int getHeight() const { return height; }
+    double getWeight() const { return weight; }
+    void setFirstName(char* firstName);
+    void setLastName(char* lastName);
+    void setAge(int age);
     void setHeight(int height);
     void setWeight(double weight);
-    void hidenInDataBase();
+    void hideInDatabase();
     void print() const;
-   
-
-   
 };
 
 

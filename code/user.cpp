@@ -1,11 +1,10 @@
 #include "../headers/user.h"
-
-user::user(const char* imie, const char* nazwisko, int wiek, int height, double weight) {
+user::user(const char* firstName, const char* lastName, int age, int height, double weight) {
     static int i = 0;
 
-    strncpy_s(this->imie, imie, sizeof(this->imie));
-    strncpy_s(this->nazwisko, nazwisko, sizeof(this->nazwisko));
-    this->wiek = wiek;
+    strncpy_s(this->firstName, firstName, sizeof(this->firstName));
+    strncpy_s(this->lastName, lastName, sizeof(this->lastName));
+    this->age = age;
     this->height = height;
     this->weight = weight;
     this->ID = ++i;
@@ -13,34 +12,31 @@ user::user(const char* imie, const char* nazwisko, int wiek, int height, double 
 
 void user::print() const {
     if (!deleted) {
-
-
-        cout << "ID:" << ID << "Imiê: " << imie << ", Nazwisko: " << nazwisko
-            << ", Wiek: " << wiek << ", Wzrost: " << weight
-            << ", Waga: " << height << endl;
+        cout << "ID: " << ID << "First Name: " << firstName << ", Last Name: " << lastName
+            << ", Age: " << age << ", Height: " << height
+            << ", Weight: " << weight << endl;
     }
     else {
-
-        cout << "ID:" << NULL << "Imiê: " << NULL << ", Nazwisko: " << NULL
-            << ", Wiek: " << NULL << ", Wzrost: " << NULL
-            << ", Waga: " << NULL << endl;
+        cout << "ID: " << NULL << "First Name: " << NULL << ", Last Name: " << NULL
+            << ", Age: " << NULL << ", Height: " << NULL
+            << ", Weight: " << NULL << endl;
     }
 }
-void user::setImie(char* imie) {
-    this->imie;
+void user::setFirstName(char* firstName) {
+    this->firstName;
 }
-void user::setNazwisko(char* nazwisko) {
-    this->nazwisko;
+void user::setLastName(char* lastName) {
+    this-> lastName;
 };
-void user::setAge(int wiek) {
-    this->wiek;
+void user::setAge(int age) {
+    this->age = age;
 };
 void user::setHeight(int height) {
-    this->height;
+    this->height = height;
 };
 void user::setWeight(double weight) {
-    this->weight;
+    this->weight = weight;
 };
-void user::hidenInDataBase() {
+void user::hideInDatabase() {
     this->deleted = true;
 };
