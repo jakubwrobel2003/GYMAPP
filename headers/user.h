@@ -30,8 +30,6 @@ public:
     int getAge() const { return age; }
     int getHeight() const { return height; }
     double getWeight() const { return weight; }
-    void setFirstName(char* firstName);
-    void setLastName(char* lastName);
     void setAge(int age);
     void setHeight(int height);
     void setWeight(double weight);
