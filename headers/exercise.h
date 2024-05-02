@@ -16,7 +16,7 @@ public:
     exercise(int id, const char* exerciseName, int series, double maxWeight, double weightInSeries, double oneRM);
 
     int getID();
-    void setID(int id);
+    void setID(int ID);
     const char* getName();
     void setName(const char* name);
     int getSeries();
@@ -27,6 +27,5 @@ public:
     void setWeightInSeries(double weightInSeries);
     double getOneRepMax();
     void setOneRepMax(double oneRepMax);
-    void setOneRepMax(double kg, double series, double& person); // Not clear what this method does—could use more context.
     void print() const;
 };
