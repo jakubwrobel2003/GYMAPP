@@ -1,0 +1,10 @@
+1      Bench_Press              3      100    80         120
+2      Squat                    4      120    100        150
+3      Deadlift                 3      150    120        170
+4      Overhead_Press           3      60     45         80
+5      Bent_Over_Row            4      80     60         100
+6      Pull-up                  3      10     15         20
+7      Barbell_Curl             3      40     30         50
+8      Tricep_Dip               3      15     20         25
+9      Leg_Press                4      200    160        220
+10     Lying_Leg_Curl           4      60     50         80
