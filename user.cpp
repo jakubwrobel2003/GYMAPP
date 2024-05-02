@@ -15,13 +15,13 @@ void user::print() const {
     if (!deleted) {
 
 
-        cout << "ID:" << ID << "Imiê: " << imie << ", Nazwisko: " << nazwisko
+        cout << "ID:" << ID << "ImiÃª: " << imie << ", Nazwisko: " << nazwisko
             << ", Wiek: " << wiek << ", Wzrost: " << weight
             << ", Waga: " << height << endl;
     }
     else {
 
-        cout << "ID:" << NULL << "Imiê: " << NULL << ", Nazwisko: " << NULL
+        cout << "ID:" << NULL << "ImiÃª: " << NULL << ", Nazwisko: " << NULL
             << ", Wiek: " << NULL << ", Wzrost: " << NULL
             << ", Waga: " << NULL << endl;
     }
@@ -41,7 +41,3 @@ void user::setHeight(int height) {
 void user::setWeight(double weight) {
     this->weight;
 };
-void user::userMetod0() {};
-void user::userMetod1() {};
-void user::userMetod2() {};
-void user::userMetod3() {};
