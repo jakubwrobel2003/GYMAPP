@@ -1,43 +1,67 @@
-#include "user.h"
-
-user::user(const char* imie, const char* nazwisko, int wiek, int height, double weight) {
+#include "../headers/user.h"
+user::user(const char* firstName, const char* lastName, int age, int height, double weight) {
     static int i = 0;
+    strncpy_s(this->firstName, firstName, sizeof(this->firstName));
+    strncpy_s(this->lastName, lastName, sizeof(this->lastName));
 
-    strncpy_s(this->imie, imie, sizeof(this->imie));
-    strncpy_s(this->nazwisko, nazwisko, sizeof(this->nazwisko));
-    this->wiek = wiek;
-    this->height = height;
-    this->weight = weight;
+    this->setAge(age);
+    this->setHeight(height);
+    this->setWeight(weight);
     this->ID = ++i;
 }
 
 void user::print() const {
     if (!deleted) {
-
-
-        cout << "ID:" << ID << "Imiê: " << imie << ", Nazwisko: " << nazwisko
-            << ", Wiek: " << wiek << ", Wzrost: " << weight
-            << ", Waga: " << height << endl;
+        cout << "ID: " << ID << "First Name: " << firstName << ", Last Name: " << lastName
+            << ", Age: " << age << ", Height: " << height
+            << ", Weight: " << weight << endl;
     }
     else {
-
-        cout << "ID:" << NULL << "Imiê: " << NULL << ", Nazwisko: " << NULL
-            << ", Wiek: " << NULL << ", Wzrost: " << NULL
-            << ", Waga: " << NULL << endl;
+        cout << "ID: " << NULL << "First Name: " << NULL << ", Last Name: " << NULL
+            << ", Age: " << NULL << ", Height: " << NULL
+            << ", Weight: " << NULL << endl;
     }
 }
-void user::setImie(char* imie) {
-    this->imie;
-}
-void user::setNazwisko(char* nazwisko) {
-    this->nazwisko;
-};
-void user::setAge(int wiek) {
-    this->wiek;
+
+void user::setAge(int age) {
+    if (age > 0) {
+
+    }
+    else {
+        do {
+            cout << "Entry correct vaule:\n";
+            cin >> age;
+        } while (!(age > 0));
+
+    }
+    this->age = age;
 };
 void user::setHeight(int height) {
-    this->height;
-};
+    if (height > 0) {
+
+    }
+    else {
+        do {
+            cout << "Entry correct vaule:\n";
+            cin >> height;
+        } while (!(height > 0));
+
+    }
+    this->height = height;
+}
 void user::setWeight(double weight) {
-    this->weight;
+    if (weight > 0) {
+
+    }
+    else {
+        do {
+            cout << "Entry correct vaule:\n";
+            cin >> weight;
+        } while (!(weight > 0));
+
+    }
+    this->weight = weight;
+};
+void user::hideInDatabase() {
+    this->deleted = true;
 };
